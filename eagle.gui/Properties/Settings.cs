@@ -20,9 +20,9 @@ namespace Eagle.Properties
                 Save();
             }
             IConfigurationSection section = new ConfigurationBuilder().AddJsonFile("config.json").Build().GetSection("ApplicationConfiguration");
+            this.IsMainnet = bool.Parse(section.GetSection("IsMainnet").Value);
             this.Paths = new PathsSettings(section.GetSection("Paths"), this.IsMainnet);
             this.P2P = new P2PSettings(section.GetSection("P2P"));
-            this.IsMainnet = bool.Parse(section.GetSection("IsMainnet").Value);
             this.Urls = this.IsMainnet ? new BrowserSettings(section.GetSection("UrlsMainnet")) : new BrowserSettings(section.GetSection("UrlsTestnet"));
             this.Contracts = new ContractSettings(section.GetSection("Contracts"));
         }
