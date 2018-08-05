@@ -9,14 +9,14 @@
       "WsPort": 10334
     },
     "UrlsMainnet": {
-      "AddressUrl": "https://eaglepay.io/xplorer/#mainnet/address/{0}",
-      "AssetUrl": "https://eaglepay.io/xplorer/#mainnet/asset/{0}",
-      "TransactionUrl": "https://eaglepay.io/xplorer/#mainnet/transaction/{0}"
+      "AddressUrl": "http://eaglepay.io/xplorer/#mainnet/address/{0}",
+      "AssetUrl": "http://eaglepay.io/xplorer/#mainnet/asset/{0}",
+      "TransactionUrl": "http://eaglepay.io/xplorer/#mainnet/transaction/{0}"
     },
     "UrlsTestnet": {
-      "AddressUrl": "https://eaglepay.io/xplorer/#testnet/address/{0}",
-      "AssetUrl": "https://eaglepay.io/xplorer/#testnet/asset/{0}",
-      "TransactionUrl": "https://eaglepay.io/xplorer/#testnet/transaction/{0}"
+      "AddressUrl": "http://eaglepay.io/xplorer/#testnet/address/{0}",
+      "AssetUrl": "http://eaglepay.io/xplorer/#testnet/asset/{0}",
+      "TransactionUrl": "http://eaglepay.io/xplorer/#testnet/transaction/{0}"
     }
   }
 }
