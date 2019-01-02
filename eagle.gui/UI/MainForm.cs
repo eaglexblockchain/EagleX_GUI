@@ -737,20 +737,27 @@ namespace Eagle.UI
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
-            查看私钥VToolStripMenuItem.Enabled =
-                listView1.SelectedIndices.Count == 1 &&
-                !((WalletAccount)listView1.SelectedItems[0].Tag).WatchOnly &&
-                ((WalletAccount)listView1.SelectedItems[0].Tag).Contract.IsStandard;
-            viewContractToolStripMenuItem.Enabled =
-                listView1.SelectedIndices.Count == 1 &&
-                !((WalletAccount)listView1.SelectedItems[0].Tag).WatchOnly;
-            voteToolStripMenuItem.Enabled =
-                listView1.SelectedIndices.Count == 1 &&
-                !((WalletAccount)listView1.SelectedItems[0].Tag).WatchOnly &&
-                !string.IsNullOrEmpty(listView1.SelectedItems[0].SubItems["ans"].Text) &&
-                decimal.Parse(listView1.SelectedItems[0].SubItems["ans"].Text) > 0;
-            复制到剪贴板CToolStripMenuItem.Enabled = listView1.SelectedIndices.Count == 1;
-            删除DToolStripMenuItem.Enabled = listView1.SelectedIndices.Count > 0;
+            try
+            {
+                查看私钥VToolStripMenuItem.Enabled =
+                    listView1.SelectedIndices.Count == 1 &&
+                    !((WalletAccount)listView1.SelectedItems[0].Tag).WatchOnly &&
+                    ((WalletAccount)listView1.SelectedItems[0].Tag).Contract.IsStandard;
+                viewContractToolStripMenuItem.Enabled =
+                    listView1.SelectedIndices.Count == 1 &&
+                    !((WalletAccount)listView1.SelectedItems[0].Tag).WatchOnly;
+                decimal num;
+                voteToolStripMenuItem.Enabled =
+                    listView1.SelectedIndices.Count == 1 &&
+                    !((WalletAccount)listView1.SelectedItems[0].Tag).WatchOnly &&
+                    !string.IsNullOrEmpty(listView1.SelectedItems[0].SubItems["ans"].Text) &&
+                    decimal.TryParse(listView1.SelectedItems[0].SubItems["ans"].Text, out num) && num > 0;
+                复制到剪贴板CToolStripMenuItem.Enabled = listView1.SelectedIndices.Count == 1;
+                删除DToolStripMenuItem.Enabled = listView1.SelectedIndices.Count > 0;
+            }
+            catch
+            {
+            }
         }
 
         private void 创建新地址NToolStripMenuItem_Click(object sender, EventArgs e)
